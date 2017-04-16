@@ -14,6 +14,7 @@ public class TestBase {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+        driver.get("https://twitter.com/");
     }
 
     @AfterSuite
