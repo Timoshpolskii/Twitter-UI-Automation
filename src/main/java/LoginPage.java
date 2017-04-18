@@ -23,10 +23,9 @@ public class LoginPage {
         this.driver = driver;
     }
 
-    public HomePage loginToApp(){
+    public void loginToApp(){
         signInField.sendKeys("andrew.t@techery.io");
         passwordField.sendKeys("123qwerty");
         loginButton.click();
-        return new HomePage(driver);
     }
 }

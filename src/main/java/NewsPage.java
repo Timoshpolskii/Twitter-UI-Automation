@@ -8,34 +8,44 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class NewsPage {
 
     private WebDriver driver;
 
-    @FindBy(xpath = ".//li[1]//a[@class='tweet-timestamp js-permalink js-nav js-tooltip']/span[1]")
-    private WebElement firstPostTime;
+    @FindBy(xpath = ".//span[@class='_timestamp js-short-timestamp js-relative-timestamp']")
+    private List<WebElement> timeOfAllPosts;
+
+
+
+    private WebElement getPostByIndex(int index){
+        WebDriverWait wait = new WebDriverWait(driver, 5);
+        wait.until(ExpectedConditions.visibilityOfAllElements(timeOfAllPosts));
+
+        return timeOfAllPosts.get(index);
+    }
+
+    private long getCurrentTime(){
+        return System.currentTimeMillis();
+    }
+
+    private long getTimeOfPostByIndex(int index){
+        String timeOfPost = getPostByIndex(index).getAttribute("data-time-ms");
+        return Long.parseLong(timeOfPost);
+    }
 
     public NewsPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
 
-    public void checkTimeOfLastPost(){
-        WebDriverWait wait = new WebDriverWait(driver, 5);
 
-        //get time of post in milliseconds
-        String postTime = wait.until(ExpectedConditions.elementToBeClickable(firstPostTime)).getAttribute("data-time-ms");
-        long postTimeInLong = Long.parseLong(postTime);
-
-        //get current time in milliseconds
-        long currentTime = System.currentTimeMillis();
-
-        //calculate difference between current time and time of post
-        long difference = currentTime - postTimeInLong;
+    public void checkTimeDifferenceByIndex(int index){
+        long difference = getCurrentTime() - getTimeOfPostByIndex(index);
         long differenceInHours = TimeUnit.MILLISECONDS.toHours(difference);
 
-        Assert.assertTrue(differenceInHours < 24);
+        Assert.assertTrue(differenceInHours < 24, "Time of post is more than 24 hours");
     }
 }

@@ -3,3 +3,4 @@
 /.gitattributes
 /automation.iml
 /target/
+/src/main/java/test.java

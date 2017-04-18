@@ -20,9 +20,8 @@ public class HomePage {
         this.driver = driver;
     }
 
-    public SearchResultsPage search(String query){
+    public void search(String query){
         searchField.sendKeys(query);
         searchButton.click();
-        return new SearchResultsPage(driver);
     }
 }

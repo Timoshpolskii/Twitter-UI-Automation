@@ -1,18 +1,16 @@
 package test.java;
 
 
-import main.java.TestBase;
-import main.java.LoginPage;
+import main.java.*;
 import org.testng.annotations.Test;
 
 public class TwitterTests extends TestBase{
 
     @Test
     public void lastTwitTest(){
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.loginToApp()
-                .search("Reuters Top News")
-                .openItemDetails()
-                .checkTimeOfLastPost();
+        new LoginPage(driver).loginToApp();
+        new HomePage(driver).search("Reuters Top News");
+        new SearchResultsPage(driver).openReutersPublicDetails();
+        new NewsPage(driver).checkTimeDifferenceByIndex(0);
     }
 }
