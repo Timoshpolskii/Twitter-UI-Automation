@@ -22,7 +22,7 @@ public class SearchResultsPage {
 
     private WebElement getResultByText(String text){
 
-        WebDriverWait wait = new WebDriverWait(driver, 5);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.visibilityOfAllElements(searchResults));
 
         WebElement result = null;
@@ -37,7 +37,7 @@ public class SearchResultsPage {
     }
 
 
-    public void openReutersPublicDetails(){
-        getResultByText("Reuters Top News").click();
+    public void openPublicByText(String text){
+        getResultByText(text).click();
     }
 }

@@ -21,7 +21,7 @@ public class NewsPage {
 
 
     private WebElement getPostByIndex(int index){
-        WebDriverWait wait = new WebDriverWait(driver, 5);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.visibilityOfAllElements(timeOfAllPosts));
 
         return timeOfAllPosts.get(index);

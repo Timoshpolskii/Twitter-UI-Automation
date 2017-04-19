@@ -8,9 +8,9 @@ public class TwitterTests extends TestBase{
 
     @Test
     public void lastTwitTest(){
-        new LoginPage(driver).loginToApp();
+        new LoginPage(driver).loginToApp("andrew.t@techery.io", "123qwerty");
         new HomePage(driver).search("Reuters Top News");
-        new SearchResultsPage(driver).openReutersPublicDetails();
+        new SearchResultsPage(driver).openPublicByText("Reuters Top News");
         new NewsPage(driver).checkTimeDifferenceByIndex(0);
     }
 }
