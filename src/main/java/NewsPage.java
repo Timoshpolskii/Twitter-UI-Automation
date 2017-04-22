@@ -6,24 +6,25 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.lessThan;
 
 public class NewsPage {
 
     private WebDriver driver;
 
-    @FindBy(xpath = ".//span[@class='_timestamp js-short-timestamp js-relative-timestamp']")
+    @FindBy(xpath = ".//span[contains(@class,'_timestamp js-short-timestamp')]")
     private List<WebElement> timeOfAllPosts;
 
 
 
     private WebElement getPostByIndex(int index){
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, 20);
         wait.until(ExpectedConditions.visibilityOfAllElements(timeOfAllPosts));
-
         return timeOfAllPosts.get(index);
     }
 
@@ -43,9 +44,13 @@ public class NewsPage {
 
 
     public void checkTimeDifferenceByIndex(int index){
-        long difference = getCurrentTime() - getTimeOfPostByIndex(index);
-        long differenceInHours = TimeUnit.MILLISECONDS.toHours(difference);
 
-        Assert.assertTrue(differenceInHours < 24, "Time of post is more than 24 hours");
+        long timeOfPost = getTimeOfPostByIndex(index);
+        long difference = getCurrentTime() - timeOfPost;
+        long differenceInHours = TimeUnit.MILLISECONDS.toHours(difference);
+        long oneDay = 24;
+
+        assertThat("Time of post is " + differenceInHours + " it's more than 24 hours",
+                differenceInHours, lessThan(oneDay));
     }
 }

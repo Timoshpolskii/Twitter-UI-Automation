@@ -28,7 +28,7 @@ public class SearchResultsPage {
         WebElement result = null;
 
         for (int i = 0; i < searchResults.size(); i++){
-            if (searchResults.get(i).getText().contains(text)){
+            if (searchResults.get(i).getText().equals(text)){
                 result = searchResults.get(i);
             }
         }
