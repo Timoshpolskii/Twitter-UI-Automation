@@ -1,6 +1,5 @@
-package main.java;
+package main.java.Pages;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -8,21 +7,16 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
+import static main.java.Support.SingletonDriver.getDriver;
+
 public class SearchResultsPage {
-
-    private WebDriver driver;
-
-    public SearchResultsPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-        this.driver = driver;
-    }
 
     @FindBy(xpath = ".//a[@class='fullname ProfileNameTruncated-link u-textInheritColor js-nav']")
     private List<WebElement> searchResults;
 
     private WebElement getResultByText(String text){
 
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(getDriver(), 10);
         wait.until(ExpectedConditions.visibilityOfAllElements(searchResults));
 
         WebElement result = null;
@@ -34,6 +28,10 @@ public class SearchResultsPage {
         }
 
         return result;
+    }
+
+    public SearchResultsPage() {
+        PageFactory.initElements(getDriver(), this);
     }
 
 

@@ -1,13 +1,12 @@
-package main.java;
+package main.java.Pages;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage {
+import static main.java.Support.SingletonDriver.getDriver;
 
-    private WebDriver driver;
+public class LoginPage {
 
     @FindBy(id = "signin-email")
     private WebElement signInField;
@@ -18,9 +17,8 @@ public class LoginPage {
     @FindBy(xpath = "//td/button[@type='submit']")
     private WebElement loginButton;
 
-    public LoginPage(WebDriver driver){
-        PageFactory.initElements(driver, this);
-        this.driver = driver;
+    public LoginPage(){
+        PageFactory.initElements(getDriver(), this);
     }
 
     public void loginToApp(String email, String password){

@@ -1,6 +1,5 @@
-package main.java;
+package main.java.Pages;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -10,12 +9,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import static main.java.Support.SingletonDriver.getDriver;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.lessThan;
 
 public class NewsPage {
-
-    private WebDriver driver;
 
     @FindBy(xpath = ".//span[contains(@class,'_timestamp js-short-timestamp')]")
     private List<WebElement> timeOfAllPosts;
@@ -23,7 +21,7 @@ public class NewsPage {
 
 
     private WebElement getPostByIndex(int index){
-        WebDriverWait wait = new WebDriverWait(driver, 20);
+        WebDriverWait wait = new WebDriverWait(getDriver(), 20);
         wait.until(ExpectedConditions.visibilityOfAllElements(timeOfAllPosts));
         return timeOfAllPosts.get(index);
     }
@@ -37,9 +35,8 @@ public class NewsPage {
         return Long.parseLong(timeOfPost);
     }
 
-    public NewsPage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-        this.driver = driver;
+    public NewsPage() {
+        PageFactory.initElements(getDriver(), this);
     }
 
 
