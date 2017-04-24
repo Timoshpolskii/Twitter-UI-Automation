@@ -14,7 +14,7 @@ public class LoginPage {
     @FindBy(id = "signin-password")
     private WebElement passwordField;
 
-    @FindBy(xpath = "//td/button[@type='submit']")
+    @FindBy(className = "flex-table-btn")
     private WebElement loginButton;
 
     public LoginPage(){

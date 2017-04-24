@@ -10,7 +10,7 @@ public class TwitterTests extends TestBase {
     public void lastTwitTest(){
         new LoginPage().loginToApp("andrew.t@techery.io", "123qwerty");
         new HomePage().search("Reuters Top News");
-        new SearchResultsPage().openPublicByText("Reuters Top News");
+        new SearchResultsPage().openPublicByName("Reuters Top News");
         new NewsPage().checkTimeDifferenceByIndex(0);
     }
 }

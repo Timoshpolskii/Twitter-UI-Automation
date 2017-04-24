@@ -11,7 +11,7 @@ public class HomePage {
     @FindBy(id = "search-query")
     private WebElement searchField;
 
-    @FindBy(xpath = ".//span/button[@type='submit']")
+    @FindBy(className = "Icon--search")
     private WebElement searchButton;
 
     public HomePage() {
@@ -19,6 +19,7 @@ public class HomePage {
     }
 
     public void search(String query){
+        searchField.clear();
         searchField.sendKeys(query);
         searchButton.click();
     }

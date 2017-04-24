@@ -11,7 +11,7 @@ import static main.java.Support.SingletonDriver.getDriver;
 
 public class SearchResultsPage {
 
-    @FindBy(xpath = ".//a[@class='fullname ProfileNameTruncated-link u-textInheritColor js-nav']")
+    @FindBy(className = "ProfileNameTruncated-link")
     private List<WebElement> searchResults;
 
     private WebElement getResultByText(String text){
@@ -35,7 +35,7 @@ public class SearchResultsPage {
     }
 
 
-    public void openPublicByText(String text){
-        getResultByText(text).click();
+    public void openPublicByName(String name){
+        getResultByText(name).click();
     }
 }

@@ -15,7 +15,7 @@ import static org.hamcrest.Matchers.lessThan;
 
 public class NewsPage {
 
-    @FindBy(xpath = ".//span[contains(@class,'_timestamp js-short-timestamp')]")
+    @FindBy(className = "_timestamp")
     private List<WebElement> timeOfAllPosts;
 
 
