@@ -7,7 +7,6 @@ import static main.java.Support.SingletonDriver.getDriver;
 
 public class TestBase {
 
-
     @BeforeSuite
     public void openBrowser(){
         getDriver().get("https://twitter.com/");
