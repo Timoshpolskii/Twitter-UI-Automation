@@ -1,10 +1,9 @@
 package main.java.Pages;
 
+import main.java.Support.ElementsHelper;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -21,8 +20,8 @@ public class NewsPage {
 
 
     private WebElement getPostByIndex(int index){
-        WebDriverWait wait = new WebDriverWait(getDriver(), 10);
-        wait.until(ExpectedConditions.visibilityOfAllElements(timeOfAllPosts));
+
+        ElementsHelper.waitElementsToBeDisplayed(timeOfAllPosts);
         return timeOfAllPosts.get(index);
     }
 

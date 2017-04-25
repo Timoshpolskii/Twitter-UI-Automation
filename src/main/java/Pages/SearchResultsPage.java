@@ -1,9 +1,8 @@
 package main.java.Pages;
 
+import main.java.Support.ElementsHelper;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
@@ -16,8 +15,7 @@ public class SearchResultsPage {
 
     private WebElement getResultByText(String text){
 
-        WebDriverWait wait = new WebDriverWait(getDriver(), 10);
-        wait.until(ExpectedConditions.visibilityOfAllElements(searchResults));
+        ElementsHelper.waitElementsToBeDisplayed(searchResults);
 
         WebElement result = null;
 
