@@ -8,14 +8,14 @@ import java.util.List;
 
 import static main.java.Support.SingletonDriver.getDriver;
 
-public class SearchResultsPage {
+public class SearchResultsPage implements ElementsHelper {
 
     @FindBy(className = "ProfileNameTruncated-link")
     private List<WebElement> searchResults;
 
     private WebElement getResultByText(String text){
 
-        ElementsHelper.waitElementsToBeDisplayed(searchResults);
+        waitElementsToBeDisplayed(searchResults);
 
         WebElement result = null;
 

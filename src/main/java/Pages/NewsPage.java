@@ -12,7 +12,7 @@ import static main.java.Support.SingletonDriver.getDriver;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.lessThan;
 
-public class NewsPage {
+public class NewsPage implements ElementsHelper{
 
     @FindBy(className = "_timestamp")
     private List<WebElement> timeOfAllPosts;
@@ -21,7 +21,7 @@ public class NewsPage {
 
     private WebElement getPostByIndex(int index){
 
-        ElementsHelper.waitElementsToBeDisplayed(timeOfAllPosts);
+        waitElementsToBeDisplayed(timeOfAllPosts);
         return timeOfAllPosts.get(index);
     }
 
