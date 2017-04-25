@@ -17,11 +17,14 @@ public class NewsPage implements ElementsHelper{
     @FindBy(className = "_timestamp")
     private List<WebElement> timeOfAllPosts;
 
+    @FindBy(className = "WhoToFollow-title")
+    private WebElement followers;
+
 
 
     private WebElement getPostByIndex(int index){
 
-        waitElementsToBeDisplayed(timeOfAllPosts);
+        waitElementToBeDisplayed(followers);
         return timeOfAllPosts.get(index);
     }
 
