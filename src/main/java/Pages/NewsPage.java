@@ -9,8 +9,6 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import static main.java.Support.SingletonDriver.getDriver;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.lessThan;
 
 public class NewsPage implements ElementsHelper{
 
@@ -28,28 +26,21 @@ public class NewsPage implements ElementsHelper{
         return timeOfAllPosts.get(index);
     }
 
-    private long getCurrentTime(){
-        return System.currentTimeMillis();
-    }
-
-    private long getTimeOfPostByIndex(int index){
-        String timeOfPost = getPostByIndex(index).getAttribute("data-time-ms");
-        return Long.parseLong(timeOfPost);
-    }
-
     public NewsPage() {
         PageFactory.initElements(getDriver(), this);
     }
 
+    public long getCurrentTime(){
+        return System.currentTimeMillis();
+    }
 
-    public void checkTimeDifferenceByIndex(int index){
+    public long getTimeOfPostByIndex(int index){
+        String timeOfPost = getPostByIndex(index).getAttribute("data-time-ms");
+        return Long.parseLong(timeOfPost);
+    }
 
-        long timeOfPost = getTimeOfPostByIndex(index);
-        long difference = getCurrentTime() - timeOfPost;
-        long differenceInHours = TimeUnit.MILLISECONDS.toHours(difference);
-        long oneDay = 24;
-
-        assertThat("Time of post is " + differenceInHours + " it's more than 24 hours",
-                differenceInHours, lessThan(oneDay));
+    public int calculateDifferenceInHours(long firstTime, long secondTime) {
+        long difference = firstTime - secondTime;
+        return (int)TimeUnit.MILLISECONDS.toHours(difference);
     }
 }
