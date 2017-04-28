@@ -9,21 +9,15 @@ import static main.java.Support.SingletonDriver.getDriver;
 public class LoginPage {
 
     @FindBy(id = "signin-email")
-    private WebElement signInField;
+    public WebElement signInField;
 
     @FindBy(id = "signin-password")
-    private WebElement passwordField;
+    public WebElement passwordField;
 
     @FindBy(className = "flex-table-btn")
-    private WebElement loginButton;
+    public WebElement loginButton;
 
     public LoginPage(){
         PageFactory.initElements(getDriver(), this);
-    }
-
-    public void loginToApp(String email, String password){
-        signInField.sendKeys(email);
-        passwordField.sendKeys(password);
-        loginButton.click();
     }
 }

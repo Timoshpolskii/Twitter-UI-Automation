@@ -13,7 +13,7 @@ public class TestBase {
     }
 
     @AfterSuite
-    public void closeBrowser(){
+    public void closeBrowser() {
         getDriver().quit();
     }
 }

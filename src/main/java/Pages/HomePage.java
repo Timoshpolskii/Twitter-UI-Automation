@@ -9,18 +9,13 @@ import static main.java.Support.SingletonDriver.getDriver;
 public class HomePage {
 
     @FindBy(id = "search-query")
-    private WebElement searchField;
+    public WebElement searchField;
 
     @FindBy(className = "Icon--search")
-    private WebElement searchButton;
+    public WebElement searchButton;
 
     public HomePage() {
         PageFactory.initElements(getDriver(), this);
     }
 
-    public void search(String query){
-        searchField.clear();
-        searchField.sendKeys(query);
-        searchButton.click();
-    }
 }
