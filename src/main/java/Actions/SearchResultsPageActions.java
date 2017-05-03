@@ -2,6 +2,7 @@ package main.java.Actions;
 
 import main.java.Pages.SearchResultsPage;
 import main.java.Support.ElementsHelper;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
 public class SearchResultsPageActions implements ElementsHelper {
@@ -20,7 +21,7 @@ public class SearchResultsPageActions implements ElementsHelper {
 
         WebElement resultLink = getResultByText(name);
         if (resultLink == null) {
-            throw new RuntimeException("Cannot find public with name [" + name + "]");
+            throw new NoSuchElementException("Cannot find public with name [" + name + "]");
         }
         else {
             resultLink.click();

@@ -14,7 +14,7 @@ public class NewsPage {
     public List<WebElement> timeOfAllPosts;
 
     @FindBy(className = "WhoToFollow-title")
-    public WebElement followers;
+    public WebElement followersTitle;
 
     public NewsPage() {
         PageFactory.initElements(getDriver(), this);

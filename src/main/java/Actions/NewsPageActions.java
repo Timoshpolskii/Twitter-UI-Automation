@@ -11,7 +11,7 @@ public class NewsPageActions implements ElementsHelper {
 
     private WebElement getPostByIndex(int index) {
 
-        waitElementToBeDisplayed(newsPage.followers);
+        waitElementToBeDisplayed(newsPage.followersTitle);
         WebElement test = null;
         try {
             test = newsPage.timeOfAllPosts.get(index);
@@ -21,10 +21,6 @@ public class NewsPageActions implements ElementsHelper {
         return test;
     }
 
-    public long getCurrentTime() {
-        return System.currentTimeMillis();
-    }
-
     public long getTimeOfPostByIndex(int index) {
         WebElement post = getPostByIndex(index);
         if (post == null) {
@@ -32,16 +28,5 @@ public class NewsPageActions implements ElementsHelper {
         }
         String timeOfPost = post.getAttribute("data-time-ms");
         return Long.parseLong(timeOfPost);
-    }
-
-    public int calculateDifferenceInHours(long firstTime, long secondTime) {
-        long difference;
-        if (firstTime > secondTime) {
-            difference = firstTime - secondTime;
-        }
-        else {
-            difference = secondTime - firstTime;
-        }
-        return (int) TimeUnit.MILLISECONDS.toHours(difference);
     }
 }
