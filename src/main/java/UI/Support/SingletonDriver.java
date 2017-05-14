@@ -1,4 +1,4 @@
-package main.java.Support;
+package main.java.UI.Support;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

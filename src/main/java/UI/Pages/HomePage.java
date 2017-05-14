@@ -1,10 +1,10 @@
-package main.java.Pages;
+package main.java.UI.Pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import static main.java.Support.SingletonDriver.getDriver;
+import static main.java.UI.Support.SingletonDriver.getDriver;
 
 public class HomePage {
 

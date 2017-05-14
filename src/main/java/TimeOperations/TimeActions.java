@@ -1,8 +1,8 @@
-package main.java.Actions;
+package main.java.TimeOperations;
 
 import java.util.concurrent.TimeUnit;
 
-public class DateTimeActions {
+public class TimeActions {
 
     public long getCurrentTime() {
         return System.currentTimeMillis();

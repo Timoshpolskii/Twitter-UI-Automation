@@ -1,6 +1,6 @@
-package main.java.Actions;
+package main.java.UI.Actions;
 
-import main.java.Pages.LoginPage;
+import main.java.UI.Pages.LoginPage;
 
 public class LoginPageActions {
 

@@ -1,10 +1,8 @@
-package main.java.Actions;
+package main.java.UI.Actions;
 
-import main.java.Pages.NewsPage;
-import main.java.Support.ElementsHelper;
+import main.java.UI.Pages.NewsPage;
+import main.java.UI.Support.ElementsHelper;
 import org.openqa.selenium.WebElement;
-
-import java.util.concurrent.TimeUnit;
 
 public class NewsPageActions implements ElementsHelper {
     private NewsPage newsPage = new NewsPage();

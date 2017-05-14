@@ -1,7 +1,7 @@
-package main.java.Actions;
+package main.java.UI.Actions;
 
-import main.java.Pages.SearchResultsPage;
-import main.java.Support.ElementsHelper;
+import main.java.UI.Pages.SearchResultsPage;
+import main.java.UI.Support.ElementsHelper;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 

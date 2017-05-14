@@ -1,8 +1,9 @@
-package test.java;
+package test.java.UITests;
 
 
-import main.java.Actions.*;
-import main.java.Support.TestBase;
+import main.java.TimeOperations.TimeActions;
+import main.java.UI.Actions.*;
+import main.java.UI.Support.TestBase;
 import org.testng.annotations.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -20,9 +21,9 @@ public class TwitterTests extends TestBase {
         NewsPageActions newsPageActions = new NewsPageActions();
         long timeOfLastTweet = newsPageActions.getTimeOfPostByIndex(0);
 
-        DateTimeActions dateTimeActions = new DateTimeActions();
-        long currentTime = dateTimeActions.getCurrentTime();
-        int differenceInHours = dateTimeActions.calculateDifferenceInHours(currentTime, timeOfLastTweet);
+        TimeActions timeActions = new TimeActions();
+        long currentTime = timeActions.getCurrentTime();
+        int differenceInHours = timeActions.calculateDifferenceInHours(currentTime, timeOfLastTweet);
 
         assertThat("Difference is " + differenceInHours + " hours, it's more than 24 hours",
                 differenceInHours, lessThan(24));
