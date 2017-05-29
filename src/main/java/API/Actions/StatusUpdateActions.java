@@ -26,9 +26,8 @@ public class StatusUpdateActions implements BaseActions {
             System.out.println("Cannot get response body");
             exception.printStackTrace();
         }
-        finally {
-            return body;
-        }
+
+        return body;
     }
 
     @Override
