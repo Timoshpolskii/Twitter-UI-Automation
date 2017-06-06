@@ -1,9 +1,12 @@
-package test.java.UITests;
+package test.java;
 
 
+import main.java.Actions.HomePageActions;
+import main.java.Actions.LoginPageActions;
+import main.java.Actions.NewsPageActions;
+import main.java.Actions.SearchResultsPageActions;
 import main.java.TimeOperations.TimeActions;
-import main.java.UI.Actions.*;
-import main.java.UI.Support.TestBase;
+import main.java.Support.TestBase;
 import org.testng.annotations.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;

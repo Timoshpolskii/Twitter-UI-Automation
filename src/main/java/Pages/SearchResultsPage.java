@@ -1,12 +1,12 @@
-package main.java.UI.Pages;
+package main.java.Pages;
 
-import main.java.UI.Support.ElementsHelper;
+import main.java.Support.ElementsHelper;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.*;
 
 import java.util.List;
 
-import static main.java.UI.Support.SingletonDriver.getDriver;
+import static main.java.Support.SingletonDriver.getDriver;
 
 public class SearchResultsPage implements ElementsHelper {
 

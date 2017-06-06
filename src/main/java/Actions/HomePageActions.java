@@ -1,6 +1,6 @@
-package main.java.UI.Actions;
+package main.java.Actions;
 
-import main.java.UI.Pages.HomePage;
+import main.java.Pages.HomePage;
 
 public class HomePageActions {
 

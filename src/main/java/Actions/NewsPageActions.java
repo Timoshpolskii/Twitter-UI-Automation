@@ -1,7 +1,7 @@
-package main.java.UI.Actions;
+package main.java.Actions;
 
-import main.java.UI.Pages.NewsPage;
-import main.java.UI.Support.ElementsHelper;
+import main.java.Pages.NewsPage;
+import main.java.Support.ElementsHelper;
 import org.openqa.selenium.WebElement;
 
 public class NewsPageActions implements ElementsHelper {
